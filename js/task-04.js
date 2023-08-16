@@ -7,7 +7,7 @@ buttonIncrementEl.addEventListener('click', function () {
     valueEl.textContent = counterValue;
 });
 buttonDecrementEl.addEventListener('click', function () {
-    counterValue += 1;
+    counterValue -= 1;
     valueEl.textContent = counterValue;
 });
 
