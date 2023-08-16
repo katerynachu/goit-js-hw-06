@@ -8,16 +8,16 @@ const {
     elements: { email, password }
 } = event.currentTarget;
 
-
-    // if (email.value === '' || password.value === '') {
-    //    return  alert("Please fill in all the fields!")
-    // }
     if (email.value === '') {
         return alert("Please fill in the login field!")
     }
     if (password.value === '') {
         return alert("Please fill in the password field!")
     }
+    if (email.value === '' || password.value === '') {
+       return  alert("Please fill in all the fields!")
+    }
+   
     class User {
         constructor(login, password) {
             this.login = login;
