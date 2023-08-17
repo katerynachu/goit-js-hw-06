@@ -8,6 +8,7 @@ const boxesMainEl = document.querySelector('#boxes');
 const inputNumberEl = document.querySelector('input');
 const buttonCreateEl = document.querySelector('[data-create]');
 const buttonDestroyEl = document.querySelector('[data-destroy]');
+const boxesEl = [];
 
 buttonCreateEl.addEventListener('click', () => {
     const numBoxes = parseInt(inputNumberEl.value);
@@ -15,25 +16,29 @@ buttonCreateEl.addEventListener('click', () => {
   for (let i = 0; i < numBoxes; i++){
     const initialSize = 30;
     const createDiv = document.createElement('div');
-    boxesMainEl.appendChild(createDiv);
-
-    const randomColor = getRandomHexColor();
+      const randomColor = getRandomHexColor();
     createDiv.style.backgroundColor = randomColor;
+    boxesEl.push(createDiv)
 
-       if (i > 0) {
-      const prevElement = boxesMainEl.children[i - 1];
-      const prevWidth = parseInt(prevElement.style.width);
-      const prevHeight = parseInt(prevElement.style.height);
-      createDiv.style.width = `${prevWidth + 10}px`;
-      createDiv.style.height = `${prevHeight + 10}px`;
-    } else {
-      createDiv.style.width = `${initialSize}px`;
-      createDiv.style.height = `${initialSize}px`;
+
+  
+    for (let i = 0; i < boxesEl.length; i++) {
+      if (i > 0) {
+        const prevElement = boxesEl[i - 1];
+        const prevWidth = parseInt(prevElement.style.width);
+        const prevHeight = parseInt(prevElement.style.height);
+        createDiv.style.width = `${prevWidth + 10}px`;
+        createDiv.style.height = `${prevHeight + 10}px`;
+      } else {
+        createDiv.style.width = `${initialSize}px`;
+        createDiv.style.height = `${initialSize}px`;
+      }
     }
 
   }
-
+    boxesMainEl.append(...boxesEl);
 })
+
 
 buttonDestroyEl.addEventListener('click', () => { 
   boxesMainEl.innerHTML = '';
