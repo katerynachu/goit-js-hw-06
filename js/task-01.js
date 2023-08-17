@@ -6,18 +6,10 @@ console.log(`Number of categories: ${numbersCategories}`);
 const listItemsEl = categoryListEl.children;
 
 for (const item of listItemsEl) {
-    const titleEl = item.querySelector('h2');
-    const listItemEl = item.querySelector('ul');
+    const titleEl = item.firstElementChild;
+    const listItemEl = item.lastElementChild.children;
     
     console.log(`Category : ${titleEl.textContent}`)
-    console.log(`Elements : ${listItemEl.children.length}`)
+    console.log(`Elements : ${listItemEl.length}`)
 }
 
-// const itemsEl = Array.from(categoryListEl.children);
-
-// itemsEl.forEach((item) => {
-//     const titleEl = item.querySelector('h2');
-//     const listItemEl = item.querySelector('ul');
-//     console.log(`Category : ${titleEl.textContent}`)
-//     console.log(`Elements : ${listItemEl.children.length}`)
-// });
