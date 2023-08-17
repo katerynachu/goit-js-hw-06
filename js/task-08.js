@@ -31,12 +31,10 @@ const {
     const customer = new User(email.value, password.value);
     console.log(customer)
 
-    allUsers.push(customer);
-    console.log(allUsers)
+
     
     
     alert (`Thank you for registration user ${email.value}`)
-    console.log(`Login : ${email.value} and Password : ${password.value}`)
     
 
     event.currentTarget.reset();
