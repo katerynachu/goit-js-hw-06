@@ -1,5 +1,4 @@
 const formEl = document.querySelector('.login-form');
-const allUsers = [];
 formEl.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
