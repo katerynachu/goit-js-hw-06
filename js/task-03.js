@@ -13,18 +13,32 @@ const images = [
   },
 ];
 const galleryEl = document.querySelector('.gallery');
-const allGalleryItems = [];
 
-for (const image of images) {
-  const galleryItemEl = document.createElement('li');
-  galleryItemEl.classList.add('gallery_item')
+images.forEach(image => {
+  const galleryItemHtml = `
+    <li class="gallery_item">
+      <img src="${image.url}" alt="${image.alt}" class="gallery_img">
+    </li>
+  `;
 
-  const galleryImgEl = document.createElement('img');
-  galleryImgEl.classList.add('gallery_img')
-  galleryImgEl.src = image.url;
-  galleryImgEl.alt = image.alt; 
-  
-  galleryItemEl.appendChild(galleryImgEl);
-    allGalleryItems.push(galleryItemEl)
-}
-galleryEl.append(...allGalleryItems);
+  galleryEl.insertAdjacentHTML('beforeend', galleryItemHtml);
+});
+
+
+// const galleryEl = document.querySelector('.gallery');
+// const allGalleryItems = [];
+
+// for (const image of images) {
+//   const galleryItemEl = document.createElement('li');
+//   galleryItemEl.classList.add('gallery_item')
+
+//   const galleryImgEl = document.createElement('img');
+//   galleryImgEl.classList.add('gallery_img')
+//   galleryImgEl.src = image.url;
+//   galleryImgEl.alt = image.alt; 
+
+//   galleryItemEl.appendChild(galleryImgEl);
+//     allGalleryItems.push(galleryItemEl)
+// }
+
+// galleryEl.append(...allGalleryItems);
